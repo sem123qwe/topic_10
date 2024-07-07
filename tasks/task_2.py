@@ -1,31 +1,18 @@
-uset_line: list[str] = input().split()
+line: list[str] = input().split()
 
-alpha_list = []
-numbers_list = []
-float_list = []
+numbers: list[int] = []
+floats: list[float] = []
+other_chars: list[str] = []
 
-for item in uset_line:
-    if item.isalpha():
-        alpha_list.append(item)
-    elif item.isdigit():
-        numbers_list.append(item)
+for item in line:
+    temp_item = item[1:] if item.startswith(('+', '-')) else item
+    if temp_item.isdigit():
+        numbers.append(int(item))
+    elif temp_item.replace('.', '', 1).isdigit():
+        floats.append(float(item))
     else:
-        float_list.append(f'{item:0<}')
+        other_chars.append(item)
 
-
-if alpha_list == False:
-    print('Список целых чисел пуст')
-else:
-    print(numbers_list)
-
-if float_list == False:
-    print('Список вещественных чисел пуст')
-else:
-    print(float_list)
-
-if alpha_list == False:
-    print('Список остальных символов пуст')
-else:
-    print(alpha_list)
-
-
+print(numbers or 'Список целых чисел пуст')
+print(floats or 'Список вещественных чисел пуст')
+print(other_chars or 'Список остальных символов пуст')

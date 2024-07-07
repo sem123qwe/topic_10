@@ -1,28 +1,14 @@
-user_input = input().split()
-user_number = input().split()
-resalt = []
+nums: list[int] = [int(num) for num in input().split()]
+target: int = int(input())
 
+removed_count: int = 0
+while target in nums:
+    nums.remove(target)
+    removed_count += 1
 
-
-
-
-for i in user_input:
-    if i == user_number:
-        resalt += i
-
-        
-
-
-
-
-
-
-
-
-# difference = len(user_input) - len(resalt)
-# print(f'Удалено {difference} элементов')
-# print(f'Новый список: {resalt}')
-
-print(len(user_input))
-print(len(resalt))
-print(resalt)
+if not nums:
+    print('Пустой список')
+elif not removed_count:
+    print('Элемент не найден')
+else:
+    print(f'Удалено {removed_count} элементов\nНовый список: {nums}')

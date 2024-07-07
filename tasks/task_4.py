@@ -1,26 +1,21 @@
-spicok = input().split()
-resalt = []
-a = spicok.extend(resalt)
+nums: list[int] = [int(num) for num in input().split()]
+print(f'ID списка: [{id(nums)}] \nИсходный список: {nums}')
 
-for i in spicok:
-    counter = spicok.count(i)
-
-    if counter > 1:
-        if i in resalt:
-            continue
-        else:
-            resalt.append(i)
+before_length: int = len(nums)
+i: int = 0
+was_seen: list[int] = []
+while i < len(nums):
+    if nums[i] in was_seen:
+        del nums[i]
     else:
-        resalt.append(i)
+        was_seen.append(nums[i])
+        i += 1
 
-print(f'ID списка: [{id(spicok)}] \nИсходный список: {spicok}')
-print(f'ID списка: [{id(resalt)}] \nИсходный список: {resalt}')
+after_length: int = len(nums)
 
-difference = len(spicok) - len(resalt)
-if difference == 0:
-    print('В списке не найдено дубликатов')
+print(f'ID списка: [{id(nums)}] \nИзмененный список: {nums}')
+
+if before_length - after_length:
+    print(f'Удалено {before_length - after_length} дубликатов')
 else:
-    print(f'Удалено {difference} дубликатов')
-
-
-# TODO с айпишником надо подумать ! (extend)
+    print('В списке не найдено дубликатов')

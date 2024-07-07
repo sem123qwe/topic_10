@@ -1,16 +1,15 @@
-resalt: str = ''
+user_input: str = input()
 
-user_input: list[str] = input().split()
+result: list[str] = []
 
 for item in user_input:
     if user_input == 'конец':
         break
-    
+
     if user_input[0].lower() == 'конец':
-            print('Ничего не введено')
+        print('Ничего не введено')
 
     else:
-        resalt += item + ','
+        result += item + ','
 
-print(resalt)
-
+print(result)
