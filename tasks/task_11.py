@@ -1,29 +1,11 @@
-line: str = input()
-repetitions = []
+nums: list[int] = list(map(int, input().split()))
+repetitions: list[int] = []
 
-lenght = len(line)
+length: int = len(nums)
 
-for i in line:
-    for j in line:
-        if range(line[i]) != range(line[j]) and i == j:
-            repetitions.append(i)
+for i in range(length):
+    for j in range(length):
+        if nums[i] == nums[j] and i != j:
+            repetitions.append(nums[i])
 
-# print(repetitions)
-
-# for i in line: 
-#     if i in repetitions:
-#         repetitions.remove(i)
-#     elif i not in repetitions:
-#         repetitions.append(i)
-
-# for i in range(line):
-#     for j in range(line):
-#         if line[i] == line[j] and i != j:
-#             repetitions.append(i)
-
-# print(repetitions)
-
-
-
-
-
+print(' '.join(map(str, repetitions)) or False)

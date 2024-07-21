@@ -1,16 +1,14 @@
-user_massege = [int(num) for num in input().split()]
+nums: list[int] = [int(num) for num in input().split()]
 
-i = 0
-j = 1
-lenght = len(user_massege)
-resalt = []
+index: int = 1
+length: int = len(nums)
+result: list[int] = []
 
-while j < lenght:
-    if user_massege[j] > user_massege[i]:
-        resalt.append(user_massege[j])
-    i += 1
-    j += 1
-        
-print(str(resalt) or False)
+while index < length:
+    if nums[index] > nums[index - 1]:
+        result.append(nums[index])
+    index += 1
 
-# ----------------------------------
+# print(*result or False)
+print(' '.join(map(str, result)) or False)
+# print(' '.join([str(num) for num in result]) or False)

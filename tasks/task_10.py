@@ -1,17 +1,12 @@
-user_line = input().split()
-unic_num = []
-lenght = len(user_line)
+nums: list[int] = list(map(int, input().split()))
+unique_nums: list[int] = []
 
-# for i in range(user_line):
-#     for j in range(user_line):
-#         if user_line[i] == user_line[j] and i != j:
-#             unic_num.append(i)
-
-for i in user_line:
-    if i in unic_num:
-        unic_num.remove(i)
+length: int = len(nums)
+for i in range(length):
+    for j in range(length):
+        if nums[i] == nums[j] and i != j:
+            break
     else:
-        unic_num.append(i)
+        unique_nums.append(nums[i])
 
-print(unic_num)
-
+print(' '.join(map(str, unique_nums)) or False)
