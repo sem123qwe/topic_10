@@ -1,4 +1,4 @@
-user_choose: str = input()
+user_choose = input()
 
 weather_data_for_year: list[list[int]] = [
     [-33, -28, -18, -39, -39, -21, -20, -40,
@@ -69,16 +69,15 @@ for i in range(len(weather_data_for_year)):
     
     weather_data_for_year[i] = sum(weather_data_for_year[i]) / len(weather_data_for_year[i])
 
-monts = [
-    'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
-    ]
+# Создайте список с названиями месяцев
+monts = [ 'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
 
 if user_choose.lower() == "год":
-    print(f'Среднегодовая температура:
-           {round(sum(weather_data_for_year) / 12, 2)} C.')
+    print(f'Среднегодовая температура: {round(sum(weather_data_for_year) / 12, 2)} C.')
 elif user_choose.lower() in monts:
     for i in range(len(monts)):
         if user_choose.lower() in monts:
-            a: int = monts.index(user_choose.lower())
-    print(f'Средняя температура за {user_choose.lower()}: 
-          {round(weather_data_for_year[a], 2)} C.')
+            a = monts.index(user_choose.lower())
+    print(f'Средняя температура за {user_choose.lower()}: {round(weather_data_for_year[a], 2)} C.')
+
+
