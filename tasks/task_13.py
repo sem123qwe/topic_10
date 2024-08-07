@@ -2,11 +2,16 @@ chart: list[str] = input().split(',')
 changes: list[str] = input().split(',')
 
 for change in changes:
+    # change = change.split()
+    # name = change[0]
+    # delta =  change[1]
+
     name, delta = change.split()
-    index = chart.index(change[:len(change) - 3]) 
-
-    pos = int(change[len(change) - 2: len(change)])  
-    
-    chart.insert(pos, change[:len(change) - 3])  
-
+    index: int = chart.index(name)
+    chart.insert(index - int(delta), chart.pop(index))
 print(chart)
+
+"""
+ЕгорКрид,LOBODA,МаксБарских,ДимаБилан,Artik&Asti
+ДимаБилан +1,LOBODA -2,ЕгорКрид -3
+"""

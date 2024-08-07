@@ -1,22 +1,23 @@
-mars_message = input().split('x')
+sides: list[str] = input().split('x')
 
-for i in range(mars_message):
-    i = mars_message[0]
-    mars_message.remove(i)
-    
-    for k in range(mars_message[i]):
-        if mars_message is True:
-            k = mars_message[1]
-        else:
-            break
+dimensions: list[int] = [int(side) for side in sides]
+stars: list[str] = ['*' for _ in range(dimensions.pop())]
+dimensions.reverse()
 
-        for j in range(mars_message[k][i]):
-            if mars_message is True:
-                j = mars_message[2]
+for dimension in dimensions:
+    stars: list[list[str]] = [stars[:] for _ in range(dimension)]
+
+for first in stars:
+    if isinstance(first, list):
+        for second in first:
+            if isinstance(second, list):
+                for third in second:
+                    print(third, end=' ')
+                print()
             else:
-                break
+                print(second, end=' ')
+        print()
+    else:
+        print(first, end=' ')
 
-            print()
-
-# isinstance
-# 
+# Лучше реализовать через рекурсию.
